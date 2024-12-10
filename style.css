@@ -1,0 +1,183 @@
+@font-face {
+  font-family: 'Lausanne';
+  src: url('tabs-highlight-ref-meta/assets/Lausanne-Regular.otf') format('otf'),
+
+}
+
+.wide-size-sections {
+  --font-tai: "Lausanne", Arial, Helvetica, sans-serif;
+
+  position: relative;
+  background-color: #000;
+}
+
+.content-size {
+  max-width: 1080px;
+  margin: auto;
+  font-family: var(--font-tai);
+
+  & .content-size__title > h2 {
+    color: #fff;
+    font-size: xxx-large;
+    padding: 3.5rem 0;
+    margin: 0;
+    text-align: center;
+    text-wrap: balance;
+  }
+}
+
+
+.tabs-container {
+  display: flex;
+  margin: 0;
+  flex-direction: row-reverse;
+  min-block-size: 50vb;
+}
+
+
+.col-images {
+  display: flex;
+  width: 60%;
+  border-inline-start: 1px solid #fff;
+  box-sizing: border-box;
+
+
+  & .col-images__image {
+    display: none;
+    margin: 0;
+
+    & img {
+      object-fit: cover;
+      max-inline-size: 100%;
+      aspect-ratio: 5 / 3;
+    }
+  }
+
+  & #image-1 {
+    display: flex;
+  }
+}
+
+.col-tabs {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.5rem;
+  color: #fff;
+  min-block-size: fill;
+
+
+
+  & .tab__title h3 {
+    margin: 0;
+    font-family: var(--font-tai);
+    font-size: x-large;
+    text-wrap: pretty;
+  }
+
+  & .tab__description p {
+    margin: 0;
+    display: none;
+    font-family: var(--font-tai);
+    text-wrap: pretty;
+    transition: all 5s ease-in;
+  }
+
+  & #description-1 {
+    display: flex;
+  }
+
+}
+
+.tab.active {
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.3s ease-in
+}
+
+
+.tab__image {
+  display: none;
+}
+
+.program-intro {
+  display: flex;
+  gap: 2rem;
+  padding: 50px 2% 30px;
+ /*  border-bottom: 1px solid white; */
+  color: white;
+ 
+}
+
+.program-intro__title {
+  & h2 {
+    font-size: xxx-large;
+    line-height: 1.1;
+    max-width: 25ch;
+    text-wrap: pretty;
+    margin: 0;
+
+  }
+}
+
+.program-intro__content .claim {
+  font-size: x-large;
+  max-width: 75ch;
+  text-wrap: pretty;
+  margin: 0;
+}
+
+.program-intro__content .description {
+
+  max-width: 75ch;
+  text-wrap: pretty;
+}
+
+
+
+/*  C S S  M O V I L  */
+
+@media (width < 768px) {
+
+  .content-size__title>h2 {
+    padding: 1.5rem !important;
+  }
+
+  .col-images {
+    display: none;
+  }
+
+  .tab__description p {
+    display: block !important;
+    transition: none !important;
+    color: white;
+  }
+
+  .tab.active .tab__description p {
+    color: #000;
+    transition: none !important;
+  }
+
+
+  .col-tabs {
+    width: 100%;
+  }
+
+  .tab__image {
+    display: block;
+    margin: 0;
+
+    & img {
+      max-inline-size: 100%;
+      object-fit: cover;
+      aspect-ratio: 5/3;
+    }
+  }
+
+}
