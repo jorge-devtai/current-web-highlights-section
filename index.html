@@ -9,83 +9,116 @@
 </head>
 
 <body>
-  <section class="wide-size-sections">
-    <div class="content-size program-intro">
-      <header class="program-intro__title"> 
-        <h2>Crea música inolvidable para las grandes historias de la industria</h2>
-      </header> 
-      <div class="program-intro__content">
-        <h3 class="claim">
-          Especialízate en composición para cine, TV, videojuegos o publicidad. 
-        </h3>
-        <p class="description">
-          Un programa de formación avanzada con el que descubrirás todas las herramientas esenciales para destacar como compositor/a en la industria del cine, la televisión, los videojuegos, los espectáculos multimedia o la publicidad. Aprenderás a crear música adaptada a una variedad de estilos, al mismo tiempo que te formas en los principios clave de la narrativa audiovisual y la función de la música en la acción dramática.
-        </p>
-        <p class="description">Al finalizar el programa, accederás a tu primer contrato laboral vinculado a la industria.</p>
-      </div>
-    </div>
-  </section>
-  <section id="highlights" class="wide-size-sections">
-    <div class="content-size">
-      <header class="content-size__title">
-        <h2>Tres razones para estudiar en TAI</h2>
-      </header>
-      <div class="tabs-container">
-        <div class="col-images">
-          <figure id="image-1" class="col-images__image">
-            <img src="assets/master-composicion-bandas-sonoras-scaled.webp" alt="">
-          </figure>
-          <figure id="image-2" class="col-images__image">
-            <img src="assets/crea-networking-banda-sonora-scaled.webp" alt="">
-          </figure>
-          <figure id="image-3" class="col-images__image">
-            <img src="assets/aprende-grandes-profesionales-banda-sonora-scaled.webp" alt="">
-          </figure>
-        </div>
-
-        <div class="col-tabs">
-          <div id="tab-1" class="tab active">
-            <figure class="tab__image">
-              <img src="assets/master-composicion-bandas-sonoras-scaled.webp" alt="">
-            </figure>
-            <div class="tab__title">
-              <h3>Conviértete en profesional de la creación sonora para medios audiovisuales</h3>
-            </div>
-            <div class="tab__description">
-              <p id="description-1">Fórmate en una de las especialidades más atractivas y competitivas en la industria
-                musical y desarrolla tus habilidades para componer en una amplia variedad de estilos.</p>
-            </div>
-          </div>
-          <div id="tab-2" class="tab">
-            <figure class="tab__image">
-              <img src="assets/crea-networking-banda-sonora-scaled.webp" alt="">
-            </figure>
-            <div class="tab__title">
-              <h3>Aprende de grandes profesionales y visionarios/as de las artes</h3>
-            </div>
-            <div class="tab__description">
-              <p id="description-2">Fórmate junto a profesionales en activo con una amplia trayectoria artística a nivel
-                nacional e internacional y descubre todas las claves para conectar tus creaciones con la industria.</p>
-            </div>
-          </div>
-          <div id="tab-3" class="tab">
-            <figure class="tab__image">
-              <img src="assets/aprende-grandes-profesionales-banda-sonora-scaled.webp" alt="">
-            </figure>
-            <div class="tab__title">
-              <h3>Conviértete en profesional de la creación sonora para medios audiovisuales</h3>
-            </div>
-            <div class="tab__description">
-              <p id="description-3">Participa en proyectos transversales generando experiencias únicas y equipos
-                profesionales para el futuro.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
   <script>
+ jQuery(document).ready(function() {
+   const $tabs = $('.tab');
+   const $images = $('.col-images__image');
+   const $descriptions = $('.tab__description p');
+ 
+   let currentTab = 0; 
+ 
+   $tabs.on('mouseover', function() {
+     const tabNumber = $(this).attr('id').split('-')[1];
+     const imageId = `image-${tabNumber}`;
+     const descriptionId = `description-${tabNumber}`;
+ 
+     $tabs.removeClass('active');
+     $images.hide();
+     $descriptions.hide();
+ 
+     $(this).addClass('active');
+     $('#' + imageId).show();
+     $('#' + descriptionId).show();
+   });
+ 
+   function changeTab() {
+     $tabs.eq(currentTab).trigger('mouseover');
+     currentTab = (currentTab + 1) % $tabs.length;
+   }
+ 
+   setInterval(changeTab, 5000);
+ });
+   </script>
+ 
+ <section class="wide-size-sections">
+     <div class="content-size program-intro">
+       <header class="program-intro__title"> 
+         <h2>Crea música inolvidable para las grandes historias de la industria</h2>
+       </header> 
+       <div class="program-intro__content">
+         <h3 class="claim">
+           Especialízate en composición para cine, TV, videojuegos o publicidad. 
+         </h3>
+         <p class="description">
+           Un programa de formación avanzada con el que descubrirás todas las herramientas esenciales para destacar como compositor/a en la industria del cine, la televisión, los videojuegos, los espectáculos multimedia o la publicidad. Aprenderás a crear música adaptada a una variedad de estilos, al mismo tiempo que te formas en los principios clave de la narrativa audiovisual y la función de la música en la acción dramática.
+         </p>
+         <p class="description">Al finalizar el programa, accederás a tu primer contrato laboral vinculado a la industria.</p>
+       </div>
+     </div>
+   </section>
+   <section id="highlights" class="wide-size-sections">
+     <div class="content-size">
+       <header class="content-size__title">
+         <h2>Tres razones para estudiar en TAI</h2>
+       </header>
+       <div class="tabs-container">
+         <div class="col-images">
+           <figure id="image-1" class="col-images__image active">
+             <img src="assets/master-composicion-bandas-sonoras-scaled.webp" alt="">
+           </figure>
+           <figure id="image-2" class="col-images__image">
+             <img src="assets/crea-networking-banda-sonora-scaled.webp" alt="">
+           </figure>
+           <figure id="image-3" class="col-images__image">
+             <img src="assets/aprende-grandes-profesionales-banda-sonora-scaled.webp" alt="">
+           </figure>
+         </div>
+ 
+         <div class="col-tabs">
+           <div id="tab-1" class="tab active">
+             <figure class="tab__image">
+               <img src="assets/master-composicion-bandas-sonoras-scaled.webp" alt="">
+             </figure>
+             <div class="tab__title">
+               <h3>Conviértete en profesional de la creación sonora para medios audiovisuales</h3>
+             </div>
+             <div class="tab__description">
+               <p id="description-1">Fórmate en una de las especialidades más atractivas y competitivas en la industria
+                 musical y desarrolla tus habilidades para componer en una amplia variedad de estilos.</p>
+             </div>
+           </div>
+           <div id="tab-2" class="tab">
+             <figure class="tab__image">
+               <img src="assets/crea-networking-banda-sonora-scaled.webp" alt="">
+             </figure>
+             <div class="tab__title">
+               <h3>Aprende de grandes profesionales y visionarios/as de las artes</h3>
+             </div>
+             <div class="tab__description">
+               <p id="description-2">Fórmate junto a profesionales en activo con una amplia trayectoria artística a nivel
+                 nacional e internacional y descubre todas las claves para conectar tus creaciones con la industria.</p>
+             </div>
+           </div>
+           <div id="tab-3" class="tab">
+             <figure class="tab__image">
+               <img src="assets/aprende-grandes-profesionales-banda-sonora-scaled.webp" alt="">
+             </figure>
+             <div class="tab__title">
+               <h3>Conviértete en profesional de la creación sonora para medios audiovisuales</h3>
+             </div>
+             <div class="tab__description">
+               <p id="description-3">Participa en proyectos transversales generando experiencias únicas y equipos
+                 profesionales para el futuro.</p>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>
+ 
+  
+  <!--  <script>
     const tabs = document.querySelectorAll('.tab');
     const images = document.querySelectorAll('.col-images__image');
     const descriptions = document.querySelectorAll('.tab__description p');
@@ -121,7 +154,7 @@
 
 
     setInterval(changeTab, 5000);
-  </script>
+  </script> -->
 
 </body>
 
